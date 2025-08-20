@@ -1,0 +1,233 @@
+body {
+  background: #111;
+  color: #eee;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background: #222;
+  padding: 15px;
+  border-bottom: 2px solid #0f0;
+}
+
+h1 { margin: 0 0 10px 0; }
+
+nav ul, nav li { list-style:none; padding:0; margin:0; display:inline-block; }
+nav li ul { display:none; position:absolute; background:#222; padding:5px; }
+nav li:hover ul { display:block; }
+nav a { color:#eee; text-decoration:none; padding:5px 10px; display:inline-block; }
+
+.tab-button { padding:10px 20px; border:none; background:#333; color:#eee; cursor:pointer; margin:0 5px; border-radius:5px; }
+.tab-button.active { background:#0f0; color:#111; }
+.tab-content { display:none; padding:20px; }
+.tab-content.active { display:block; }
+
+/* 2D container */
+#pcb2D-container {
+  width: 80%;
+  max-width: 900px;
+  height: 600px;
+  margin: auto;
+  border: 2px solid #333;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+#pcb2D-img { transform-origin: center center; transition: transform 0.05s linear; cursor: grab; }
+
+/* 3D container */
+#pcb3D-container { width: 80%; max-width:900px; height:600px; margin:auto; border:2px solid #333; background:#000; }
+
+.product-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #0f0;
+  color: #111;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 5px;
+  transition: background 0.3s;
+}
+.product-link:hover {
+  background: #0c0;
+}
+
+.tab-controls {
+  margin-top: 15px;
+}
+
+.tab-controls .tab-button {
+  padding: 10px 20px;
+  border: none;
+  background: #333;
+  color: #eee;
+  cursor: pointer;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+
+.tab-controls .tab-button.active {
+  background: #0f0;
+  color: #111;
+}
+
+footer {
+  margin-top: 50px;  /* afasta do conteúdo */
+  padding: 15px;
+  background: #111;
+  border-top: 2px solid #0f0;
+}
+
+/* ---------------------- CONTATO ---------------------- */
+
+/* Formulário de contato */
+#contact-form {
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+}
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background: #111;
+  color: #eee;
+}
+#contact-form button {
+  padding: 10px 20px;
+  background: #0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #111;
+  font-weight: bold;
+}
+#contact-form button:hover {
+  background: #0c0;
+}
+#form-status {
+  margin-top: 15px;
+  color: #0f0;
+  text-align: center;
+  display: none;
+}
+
+/* Redes sociais */
+#social-media {
+  margin-top: 40px;
+}
+#social-media h2 {
+  margin-bottom: 10px;
+}
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+.social-buttons a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+.social-buttons a:hover {
+  transform: scale(1.05);
+}
+.social-facebook { background: #1877f2; }
+.social-instagram { background: #e4405f; }
+.social-linkedin { background: #0077b5; }
+.social-github { background: #333; }
+
+/* Rodapé */
+footer {
+  margin-top: 50px;
+  padding: 15px;
+  background: #111;
+  border-top: 2px solid #0f0;
+}
+
+
+/* ---------------------- DARK/LIGHT MODE ---------------------- */
+
+/* Light mode geral */
+body.light-mode {
+  background: #f5f5f5;
+  color: #111;
+}
+
+body.light-mode header {
+  background: #ddd;
+  border-bottom: 2px solid #0a0;
+}
+
+body.light-mode nav a {
+  color: #111;
+}
+
+body.light-mode .tab-button {
+  background: #ccc;
+  color: #111;
+}
+body.light-mode .tab-button.active {
+  background: #0a0;
+  color: #fff;
+}
+
+/* Containers */
+body.light-mode #pcb2D-container,
+body.light-mode #pcb3D-container {
+  background: #eee;
+  border: 2px solid #ccc;
+}
+
+/* Formulário */
+body.light-mode #contact-form input,
+body.light-mode #contact-form textarea {
+  background: #fff;
+  color: #111;
+  border: 1px solid #aaa;
+}
+
+/* Rodapé */
+body.light-mode footer {
+  background: #ddd;
+  border-top: 2px solid #0a0;
+}
+
+/* Admin Table */
+body.light-mode table {
+  background: #fff;
+  color: #111;
+}
+body.light-mode table th {
+  background: #0a0;
+  color: #fff;
+}
+body.light-mode table td {
+  border: 1px solid #ccc;
+}
+
+/* Corrigir dropdown no modo claro */
+body.light-mode nav li ul {
+  background: #ddd;
+}
+
+body.light-mode nav li ul a {
+  color: #111;
+}

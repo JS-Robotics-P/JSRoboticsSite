@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato - JSRobotics</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<script>
+  // Alternar tema
+  function toggleTheme() {
+    document.body.classList.toggle("light-mode");
+    const isLight = document.body.classList.contains("light-mode");
+    localStorage.setItem("theme", isLight ? "light" : "dark");
+    document.getElementById("theme-toggle").textContent = isLight ? "🌙 Modo Escuro" : "☀️ Modo Claro";
+  }
+
+  // Aplicar tema salvo
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      document.body.classList.add("light-mode");
+      document.getElementById("theme-toggle").textContent = "🌙 Modo Escuro";
+    }
+  });
+</script>
+
+
+<body>
+
+<header>
+  <h1>JSRobotics - Contato</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>Produtos
+        <ul>
+          <li><a href="produtos.html">Placas Robóticas</a></li>
+        </ul>
+      </li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <button id="theme-toggle" onclick="toggleTheme()" style="margin-top:10px; padding:5px 10px; border:none; border-radius:5px; cursor:pointer;">☀️ Modo Claro</button>
+  </nav>
+</header>
+
+<main>
+  <h2>Entre em Contato</h2>
+  <p>Preencha o formulário abaixo para falar com nossa equipe:</p>
+
+  <form id="contact-form">
+    <label for="nome">Nome:</label><br>
+    <input type="text" id="nome" name="nome" required><br>
+
+    <label for="email">E-mail:</label><br>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="mensagem">Mensagem:</label><br>
+    <textarea id="mensagem" name="mensagem" rows="5" required></textarea><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <div id="form-status">
+    ✅ Mensagem enviada com sucesso!
+  </div>
+
+  <hr style="margin:40px auto; width:60%; border:1px solid #333;">
+
+  <section id="social-media">
+    <h2>Siga-nos nas redes sociais</h2>
+    <p>Fique por dentro das novidades da JSRobotics:</p>
+    <div class="social-buttons">
+      <a href="https://facebook.com" target="_blank" class="social-facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://instagram.com" target="_blank" class="social-instagram"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://linkedin.com" target="_blank" class="social-linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      <a href="https://github.com/JS-Robotics-P" target="_blank" class="social-github"><i class="fab fa-github"></i> GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 2025 JSRobotics</footer>
+
+<script>
+  // Função para salvar no localStorage em formato JSON
+  function salvarMensagem(mensagemObj) {
+    let mensagens = JSON.parse(localStorage.getItem("mensagens")) || [];
+    mensagens.push(mensagemObj);
+    localStorage.setItem("mensagens", JSON.stringify(mensagens));
+  }
+
+  // Processamento do formulário
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const mensagem = document.getElementById("mensagem").value;
+
+    const msgObj = {
+      nome: nome,
+      email: email,
+      mensagem: mensagem,
+      data: new Date().toLocaleString()
+    };
+
+    salvarMensagem(msgObj);
+
+    const statusDiv = document.getElementById("form-status");
+    statusDiv.style.display = "block";
+
+    this.reset();
+
+    setTimeout(() => {
+      statusDiv.style.display = "none";
+    }, 5000);
+  });
+</script>
+
+</body>
+</html>

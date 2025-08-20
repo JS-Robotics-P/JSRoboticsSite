@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produtos - JSRobotics</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<script>
+  // Alternar tema
+  function toggleTheme() {
+    document.body.classList.toggle("light-mode");
+    const isLight = document.body.classList.contains("light-mode");
+    localStorage.setItem("theme", isLight ? "light" : "dark");
+    document.getElementById("theme-toggle").textContent = isLight ? "🌙 Modo Escuro" : "☀️ Modo Claro";
+  }
+
+  // Aplicar tema salvo
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      document.body.classList.add("light-mode");
+      document.getElementById("theme-toggle").textContent = "🌙 Modo Escuro";
+    }
+  });
+</script>
+
+
+<body>
+<header>
+  <h1>JSRobotics - Produtos</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>Produtos
+        <ul>
+          <li><a href="produtos.html">Placas Robóticas</a></li>
+        </ul>
+      </li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <button id="theme-toggle" onclick="toggleTheme()" style="margin-top:10px; padding:5px 10px; border:none; border-radius:5px; cursor:pointer;">☀️ Modo Claro</button>
+  </nav>
+</header>
+
+<main>
+  <h2>Placas Robóticas</h2>
+  <p>Veja nossas placas robóticas em detalhes:</p>
+   <div>
+    <a class="product-link" href="JSCoreX.html">JSCoreX</a>
+    <a class="product-link" href="JSCoreXLite.html">JSCoreXLite</a>
+  </div>
+</main>
+
+
+<footer>© 2025 JSRobotics</footer>
+</body>
+</html>

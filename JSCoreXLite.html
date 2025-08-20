@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Placa Robótica - Visualização</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<script>
+  // Alternar tema
+  function toggleTheme() {
+    document.body.classList.toggle("light-mode");
+    const isLight = document.body.classList.contains("light-mode");
+    localStorage.setItem("theme", isLight ? "light" : "dark");
+    document.getElementById("theme-toggle").textContent = isLight ? "🌙 Modo Escuro" : "☀️ Modo Claro";
+  }
+
+  // Aplicar tema salvo
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      document.body.classList.add("light-mode");
+      document.getElementById("theme-toggle").textContent = "🌙 Modo Escuro";
+    }
+  });
+</script>
+
+
+<body>
+
+<header>
+  <h1>JSRobotics - Visualização da PCB</h1>
+  <!-- Menu principal -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>Produtos
+        <ul>
+          <li><a href="produtos.html">Placas Robóticas</a></li>
+        </ul>
+      </li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <button id="theme-toggle" onclick="toggleTheme()" style="margin-top:10px; padding:5px 10px; border:none; border-radius:5px; cursor:pointer;">☀️ Modo Claro</button>
+  </nav>
+
+  <!-- Botões das abas -->
+  <div class="tab-controls">
+    <button class="tab-button active" onclick="openTab('2d', event)">2D</button>
+    <button class="tab-button" onclick="openTab('3d', event)">3D</button>
+  </div>
+
+</header>
+
+<main>
+  <!-- Aba 2D -->
+  <section id="tab-2d" class="tab-content active">
+    <div id="pcb2D-container">
+      <img id="pcb2D-img" src="assets/JSCoreXLite.png" alt="Placa JSCoreX">
+    </div>
+  </section>
+
+  <!-- Aba 3D -->
+  <section id="tab-3d" class="tab-content">
+    <model-viewer src="assets/BoardJSCoreXLite.glb" alt="Placa 3D" style="width:100%; height:600px;" camera-controls autoplay></model-viewer>
+  </section>
+</main>
+
+<footer>© 2025 JSRobotics</footer>
+
+<script src="script.js"></script>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+
+</body>
+</html>
